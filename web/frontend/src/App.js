@@ -1,10 +1,10 @@
-import Navbar from './components/Navbar';
 import './App.css';
+import HomePage from './pages/HomePage';
 
 function App() {
   return (
-    <div>
-      <Navbar />
+    <div className='px-8'>
+      <HomePage />
     </div>
   );
 }
