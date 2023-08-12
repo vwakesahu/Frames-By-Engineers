@@ -1,8 +1,14 @@
-import React from "react";
+import React, { useState } from "react";
 import Logo from "../img/logo.svg";
 import MenuIcon from "../img/menu-icon.svg";
 
 const Navbar = () => {
+  const [isMenu, setIsMenu] = useState(false);
+
+  const handleMenu = () => {
+    setIsMenu(!isMenu);
+  };
+
   return (
     <div className="pt-4">
       {/* For Desktops */}
@@ -36,7 +42,22 @@ const Navbar = () => {
             ames
           </p>
         </div>
-        <img src={MenuIcon} className="w-5" alt="" />
+        <img
+          src={MenuIcon}
+          className="w-5 relative z-50"
+          alt=""
+          onClick={handleMenu}
+        />
+        {isMenu && (
+          <div className="w-40 bg-gray-50 shadow-xl rounded-lg flex flex-col absolute top-12 right-0 px-4 py-3">
+            <ul className="flex flex-col gap-2  ">
+              <li>Home</li>
+              <li>Categories</li>
+              <li>Trendy</li>
+              <li>About Us</li>
+            </ul>
+          </div>
+        )}
       </div>
     </div>
   );
