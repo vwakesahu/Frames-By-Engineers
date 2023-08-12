@@ -56,6 +56,9 @@ module.exports = {
         whiteColor: "#FFFFFF",
         lightPink: "#FEBBED",
         lightViolet: "#B977FE",
+        lightGrey: "#C7C7C7",
+        mediumGrey: '#36454F',
+        darkBlue: '#20175E',
         
       },
     },
