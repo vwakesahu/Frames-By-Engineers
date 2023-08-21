@@ -27,8 +27,7 @@ const Navbar = () => {
             <li className="cursor-pointer">Trendy</li>
             <li className="cursor-pointer">About Us</li>
           </ul>
-
-          <button className="text-darkBlu p-3 px-4 bg- rounded-lg text-sm font-bold hover:text-darkGreen">
+          <button className="text-lg border-black rounded-lg p-3 px-6 hover:bg-black hover:text-white font-medium border-2">
             Register Now
           </button>
         </div>
