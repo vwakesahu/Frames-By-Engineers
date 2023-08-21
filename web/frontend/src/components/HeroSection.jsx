@@ -27,8 +27,8 @@ const HeroSection = () => {
         />
       </div>
       <button className="mr-auto mt-8 text-lg border-black rounded-lg p-3 px-6 w-full hover:bg-black hover:text-white font-medium border-2 md:hidden mb-24">
-          Buy Now
-        </button>
+        Buy Now
+      </button>
     </section>
   );
 };
