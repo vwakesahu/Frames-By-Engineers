@@ -11,7 +11,7 @@ const HeroSection = () => {
             Frames
           </span>
         </p>
-        <p className="mt-5 md:text-lg text-mediumGrey w-3/4">
+        <p className="mt-5 md:text-lg text-mediumGrey md:w-3/4">
           Transform moments into memories with our meticulously crafted frames,
           where each click finds its perfect place.
         </p>
