@@ -27,8 +27,7 @@ const Navbar = () => {
             <li className="cursor-pointer">Trendy</li>
             <li className="cursor-pointer">About Us</li>
           </ul>
-
-          <button className="text-darkBlu p-3 px-4 bg- rounded-lg text-sm font-bold hover:text-darkGreen">
+          <button className="text-lg border-black rounded-lg p-3 px-6 hover:bg-black hover:text-white font-medium border-2">
             Register Now
           </button>
         </div>
@@ -36,7 +35,7 @@ const Navbar = () => {
 
       {/* For Phones */}
       <div className="md:hidden flex justify-between px-8">
-        <div className="flex items-end" >
+        <div className="flex items-end">
           <img src={Logo} className="w-5 mb-3 " alt="logo" />
           <p className="text-[2rem] font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-lightPink to-lightViolet">
             ames
