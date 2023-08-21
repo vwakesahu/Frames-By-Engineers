@@ -36,7 +36,7 @@ const Navbar = () => {
 
       {/* For Phones */}
       <div className="md:hidden flex justify-between px-8">
-        <div className="flex items-end">
+        <div className="flex items-end" >
           <img src={Logo} className="w-5 mb-3 " alt="logo" />
           <p className="text-[2rem] font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-lightPink to-lightViolet">
             ames
