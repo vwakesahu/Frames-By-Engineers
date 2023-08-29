@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import Logo from "../img/logo.svg";
 import MenuIcon from "../img/menu-icon.svg";
+import { Link } from "react-router-dom";
 
 const Navbar = () => {
   const [isMenu, setIsMenu] = useState(false);
@@ -22,8 +23,12 @@ const Navbar = () => {
           </div>
 
           <ul className="flex gap-10 text-sm">
-            <li className="cursor-pointer">Home</li>
-            <li className="cursor-pointer">Categories</li>
+            <li>
+              <Link to="/">Home</Link>
+            </li>
+            <li>
+              <Link to="/category">Categories</Link>
+            </li>
             <li className="cursor-pointer">Trendy</li>
             <li className="cursor-pointer">About Us</li>
           </ul>
