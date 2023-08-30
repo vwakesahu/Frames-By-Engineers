@@ -29,8 +29,12 @@ const Navbar = () => {
             <li>
               <Link to="/category">Categories</Link>
             </li>
-            <li className="cursor-pointer">Trendy</li>
-            <li className="cursor-pointer">About Us</li>
+            <li className="cursor-pointer">
+              <Link to="/trendy">Trendy</Link>
+            </li>
+            <li className="cursor-pointer">
+              <Link to="/about-us">About Us</Link>
+            </li>
           </ul>
           <button className="text-lg border-black rounded-lg p-3 px-6 hover:bg-black hover:text-white font-medium border-2">
             Register Now
@@ -55,10 +59,18 @@ const Navbar = () => {
         {isMenu && (
           <div className="w-40 bg-gray-50 shadow-xl rounded-lg flex flex-col absolute top-12 right-0 px-4 py-3">
             <ul className="flex flex-col gap-2  ">
-              <li>Home</li>
-              <li>Categories</li>
-              <li>Trendy</li>
-              <li>About Us</li>
+              <li onClick={handleMenu}>
+                <Link to="/">Home</Link>
+              </li>
+              <li onClick={handleMenu}>
+                <Link to="/category">Categories</Link>
+              </li>
+              <li onClick={handleMenu}>
+                <Link to="/trendy">Trendy</Link>
+              </li>
+              <li onClick={handleMenu}>
+                <Link to="/about-us">About Us</Link>
+              </li>
             </ul>
           </div>
         )}
