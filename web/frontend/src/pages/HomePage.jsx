@@ -1,19 +1,50 @@
 import React from "react";
-import Navbar from "../components/Navbar";
 import HeroSection from "../components/HeroSection";
-import { Routes, Route, Navigate, Router } from "react-router-dom";
-import Category from "../components/Category";
+import Frames from "../components/Frames.jsx";
+import Pic1 from "../img/pictures/pic-1.jpg";
+import Pic2 from "../img/pictures/pic-2.jpg";
 
 const HomePage = () => {
   return (
     <div>
-      <Navbar />
-      <div className="px-8">
-        <Routes>
-          <Route path="/" element={<HeroSection />} />
-          <Route path="*" element={<Navigate to="/" />} />
-          <Route path="/category" element={<Category />} />
-        </Routes>
+      <HeroSection />
+      <div className="md:flex gap-8">
+        <Frames
+          innerHeight="[95%]"
+          innerWidth="[95%]"
+          outterHeight="[65%]"
+          outterHeightMobile="[95%]"
+          outterWidth="[20%]"
+          outterWidthMobile="full"
+          image={Pic1}
+        />
+        <Frames
+          innerHeight="[95%]"
+          innerWidth="[95%]"
+          outterHeight="[65%]"
+          outterHeightMobile="[95%]"
+          outterWidth="[20%]"
+          outterWidthMobile="full"
+          image={Pic2}
+        />
+        <Frames
+          innerHeight="[95%]"
+          innerWidth="[95%]"
+          outterHeight="[65%]"
+          outterHeightMobile="[95%]"
+          outterWidth="[20%]"
+          outterWidthMobile="full"
+          image={Pic1}
+        />
+        <Frames
+          innerHeight="[95%]"
+          innerWidth="[95%]"
+          outterHeight="[65%]"
+          outterHeightMobile="[95%]"
+          outterWidth="[20%]"
+          outterWidthMobile="full"
+          image={Pic1}
+        />
       </div>
     </div>
   );
