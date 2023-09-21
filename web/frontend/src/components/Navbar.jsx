@@ -5,9 +5,12 @@ import { Link } from "react-router-dom";
 
 import { getAuth, GoogleAuthProvider, signInWithPopup } from "firebase/auth";
 import { app } from "../firebase.config";
+import { useStateValue } from "../context/StateProvider";
+import { actionType } from "../context/reducer";
 
 const Navbar = () => {
   const [isMenu, setIsMenu] = useState(false);
+  const [{ user }, dispatch] = useStateValue();
 
   const firebaseAuth = getAuth(app);
   const provider = new GoogleAuthProvider();
@@ -17,6 +20,8 @@ const Navbar = () => {
       user: { providerData },
     } = await signInWithPopup(firebaseAuth, provider);
     console.log(providerData);
+
+    dispatch({ type: actionType.SET_USER, user: providerData[0] });
   };
 
   const handleMenu = () => {
@@ -50,8 +55,11 @@ const Navbar = () => {
             </li>
           </ul>
 
-          {/* {providerData ? (
-            <img />
+          {user ? (
+            <img
+              src={user.photoURL}
+              className="w-10 min-w-[40px] h-10 min-h-[40px] drop-shadow-xl cursor-pointer rounded-full"
+            />
           ) : (
             <button
               className="text-lg border-black rounded-lg p-3 px-6 hover:bg-black hover:text-white font-medium border-2"
@@ -59,7 +67,7 @@ const Navbar = () => {
             >
               Register Now / Login
             </button>
-          )} */}
+          )}
         </div>
       </div>
 
@@ -71,14 +79,23 @@ const Navbar = () => {
             ames
           </p>
         </div>
-        <img
-          src={MenuIcon}
-          className="w-5 relative z-50"
-          alt=""
-          onClick={handleMenu}
-        />
+        {user ? (
+          <img
+            src={user.photoURL}
+            onClick={handleMenu}
+            className="w-10 min-w-[40px] h-10 min-h-[40px] drop-shadow-xl cursor-pointer rounded-full"
+          />
+        ) : (
+          <img
+            src={MenuIcon}
+            className="w-5 relative z-50"
+            alt=""
+            onClick={handleMenu}
+          />
+        )}
+
         {isMenu && (
-          <div className="w-50 bg-gray-50 shadow-xl rounded-lg flex flex-col absolute top-12 right-0 px-4 py-3">
+          <div className="w-50 bg-gray-50 shadow-xl rounded-lg flex flex-col absolute top-16 right-8 px-4 py-3">
             <ul className="flex flex-col gap-2  ">
               <li onClick={handleMenu}>
                 <Link to="/">Home</Link>
@@ -92,12 +109,14 @@ const Navbar = () => {
               <li onClick={handleMenu}>
                 <Link to="/about-us">About Us</Link>
               </li>
-              <li
-                className=" text-sm bg-black text-white p-3 rounded-lg"
-                onClick={handleMenu}
-              >
-                <p>Register Now / Login</p>
-              </li>
+              {!user && (
+                <li
+                  className=" text-sm bg-black text-white p-3 rounded-lg"
+                  onClick={handleLogin}
+                >
+                  <p>Register Now / Login</p>
+                </li>
+              )}
             </ul>
           </div>
         )}
