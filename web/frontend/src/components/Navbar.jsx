@@ -37,7 +37,7 @@ const Navbar = () => {
             </li>
           </ul>
           <button className="text-lg border-black rounded-lg p-3 px-6 hover:bg-black hover:text-white font-medium border-2">
-            Register Now
+            Register Now / Login
           </button>
         </div>
       </div>
@@ -57,7 +57,7 @@ const Navbar = () => {
           onClick={handleMenu}
         />
         {isMenu && (
-          <div className="w-40 bg-gray-50 shadow-xl rounded-lg flex flex-col absolute top-12 right-0 px-4 py-3">
+          <div className="w-50 bg-gray-50 shadow-xl rounded-lg flex flex-col absolute top-12 right-0 px-4 py-3">
             <ul className="flex flex-col gap-2  ">
               <li onClick={handleMenu}>
                 <Link to="/">Home</Link>
@@ -70,6 +70,9 @@ const Navbar = () => {
               </li>
               <li onClick={handleMenu}>
                 <Link to="/about-us">About Us</Link>
+              </li>
+              <li className=" text-sm bg-black text-white p-3 rounded-lg" onClick={handleMenu}>
+                <p>Register Now / Login</p>
               </li>
             </ul>
           </div>

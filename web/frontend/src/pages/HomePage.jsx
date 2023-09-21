@@ -1,50 +1,26 @@
 import React from "react";
 import HeroSection from "../components/HeroSection";
-import Frames from "../components/Frames.jsx";
-import Pic1 from "../img/pictures/pic-1.jpg";
-import Pic2 from "../img/pictures/pic-2.jpg";
+
+import F1 from "../img/pictures/Frame 6.png";
+import F2 from "../img/pictures/Frame 1.png";
+
+import F3 from "../img/pictures/Frame 7.png";
+
+import F4 from "../img/pictures/Frame 8.png";
+
+import Frames from "../components/Frames";
 
 const HomePage = () => {
   return (
     <div>
       <HeroSection />
-      <div className="md:flex gap-8">
-        <Frames
-          innerHeight="[95%]"
-          innerWidth="[95%]"
-          outterHeight="[65%]"
-          outterHeightMobile="[95%]"
-          outterWidth="[20%]"
-          outterWidthMobile="full"
-          image={Pic1}
-        />
-        <Frames
-          innerHeight="[95%]"
-          innerWidth="[95%]"
-          outterHeight="[65%]"
-          outterHeightMobile="[95%]"
-          outterWidth="[20%]"
-          outterWidthMobile="full"
-          image={Pic2}
-        />
-        <Frames
-          innerHeight="[95%]"
-          innerWidth="[95%]"
-          outterHeight="[65%]"
-          outterHeightMobile="[95%]"
-          outterWidth="[20%]"
-          outterWidthMobile="full"
-          image={Pic1}
-        />
-        <Frames
-          innerHeight="[95%]"
-          innerWidth="[95%]"
-          outterHeight="[65%]"
-          outterHeightMobile="[95%]"
-          outterWidth="[20%]"
-          outterWidthMobile="full"
-          image={Pic1}
-        />
+      <div className="flex md:flex-row flex-col gap-8 justify-center">
+
+        {/* Frames */}
+        <Frames image={F1}/>
+        <Frames image={F2}/>
+        <Frames image={F3}/>
+        <Frames image={F4}/>
       </div>
     </div>
   );
