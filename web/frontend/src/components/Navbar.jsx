@@ -22,6 +22,8 @@ const Navbar = () => {
     console.log(providerData);
 
     dispatch({ type: actionType.SET_USER, user: providerData[0] });
+
+    localStorage.setItem("user", JSON.stringify(providerData[0]));
   };
 
   const handleMenu = () => {
