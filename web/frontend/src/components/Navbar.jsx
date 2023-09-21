@@ -3,8 +3,21 @@ import Logo from "../img/logo.svg";
 import MenuIcon from "../img/menu-icon.svg";
 import { Link } from "react-router-dom";
 
+import { getAuth, GoogleAuthProvider, signInWithPopup } from "firebase/auth";
+import { app } from "../firebase.config";
+
 const Navbar = () => {
   const [isMenu, setIsMenu] = useState(false);
+
+  const firebaseAuth = getAuth(app);
+  const provider = new GoogleAuthProvider();
+
+  const handleLogin = async () => {
+    const {
+      user: { providerData },
+    } = await signInWithPopup(firebaseAuth, provider);
+    console.log(providerData);
+  };
 
   const handleMenu = () => {
     setIsMenu(!isMenu);
@@ -36,9 +49,17 @@ const Navbar = () => {
               <Link to="/about-us">About Us</Link>
             </li>
           </ul>
-          <button className="text-lg border-black rounded-lg p-3 px-6 hover:bg-black hover:text-white font-medium border-2">
-            Register Now / Login
-          </button>
+
+          {/* {providerData ? (
+            <img />
+          ) : (
+            <button
+              className="text-lg border-black rounded-lg p-3 px-6 hover:bg-black hover:text-white font-medium border-2"
+              onClick={handleLogin}
+            >
+              Register Now / Login
+            </button>
+          )} */}
         </div>
       </div>
 
@@ -71,7 +92,10 @@ const Navbar = () => {
               <li onClick={handleMenu}>
                 <Link to="/about-us">About Us</Link>
               </li>
-              <li className=" text-sm bg-black text-white p-3 rounded-lg" onClick={handleMenu}>
+              <li
+                className=" text-sm bg-black text-white p-3 rounded-lg"
+                onClick={handleMenu}
+              >
                 <p>Register Now / Login</p>
               </li>
             </ul>
