@@ -7,6 +7,9 @@ import { getAuth, GoogleAuthProvider, signInWithPopup } from "firebase/auth";
 import { app } from "../firebase.config";
 import { useStateValue } from "../context/StateProvider";
 import { actionType } from "../context/reducer";
+import { CiLogout } from "react-icons/ci";
+
+import { IoIosAdd } from "react-icons/io";
 
 const Navbar = () => {
   const [isMenu, setIsMenu] = useState(false);
@@ -24,6 +27,17 @@ const Navbar = () => {
     dispatch({ type: actionType.SET_USER, user: providerData[0] });
 
     localStorage.setItem("user", JSON.stringify(providerData[0]));
+    setIsMenu(false)
+  };
+
+  const logout = () => {
+    setIsMenu(false);
+    localStorage.clear();
+
+    dispatch({
+      type: actionType.SET_USER,
+      user: null,
+    });
   };
 
   const handleMenu = () => {
@@ -61,14 +75,32 @@ const Navbar = () => {
             <img
               src={user.photoURL}
               className="w-10 min-w-[40px] h-10 min-h-[40px] drop-shadow-xl cursor-pointer rounded-full"
+              onClick={handleMenu}
             />
           ) : (
             <button
-              className="text-lg border-black rounded-lg p-3 px-6 hover:bg-black hover:text-white font-medium border-2"
+              className="text-lg rounded-lg p-3 px-6 border hover:bg-black hover:text-white font-light border-1"
               onClick={handleLogin}
             >
               Register Now / Login
             </button>
+          )}
+
+          {isMenu && (
+            <div
+              className=" absolute right-8 top-20 bg-white border rounded-lg"
+              onClick={logout}
+            >
+              {user && user.email === "viveksahu1762@gmail.com" && (
+                <div className="p-4 rounded-t-lg flex justify-start items-center gap-3 hover:bg-gray-100 font-bold cursor-pointer">
+                  <IoIosAdd /> <p>Add Item</p>
+                </div>
+              )}
+
+              <div className="p-4 rounded-b-lg flex justify-start items-center gap-3 hover:bg-red-500 font-bold hover:text-white cursor-pointer">
+                <CiLogout /> <p>Logout</p>
+              </div>
+            </div>
           )}
         </div>
       </div>
@@ -111,12 +143,19 @@ const Navbar = () => {
               <li onClick={handleMenu}>
                 <Link to="/about-us">About Us</Link>
               </li>
-              {!user && (
+              {user ? (
                 <li
-                  className=" text-sm bg-black text-white p-3 rounded-lg"
+                  className=" text-sm bg-black w-28 text-white p-3 rounded-lg  flex items-center justify-center"
+                  onClick={logout}
+                >
+                  <p>Logout</p>
+                </li>
+              ) : (
+                <li
+                  className=" text-sm bg-black w-28 text-white p-3 rounded-lg  flex items-center justify-center"
                   onClick={handleLogin}
                 >
-                  <p>Register Now / Login</p>
+                  <p>Login</p>
                 </li>
               )}
             </ul>

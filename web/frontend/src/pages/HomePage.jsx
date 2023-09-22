@@ -14,13 +14,22 @@ const HomePage = () => {
   return (
     <div>
       <HeroSection />
-      <div className="flex md:flex-row flex-col gap-8 justify-center">
+      <div className="">
+        <div className="flex items-center justify-center flex-col gap-10">
+          <p className=" text-2xl font-semibold hover:underline cursor-pointer">Vertical Frames</p>
+          <div className="grid md:grid-cols-4 grid-cols-1 md:grid-rows-2 gap-6  ">
+            {/* Frames */}
+            <Frames image={F1} />
+            <Frames image={F2} />
+            <Frames image={F3} />
+            <Frames image={F4} />
+            <Frames image={F4} />
+            <Frames image={F3} />
+            <Frames image={F2} />
+            <Frames image={F1} />
 
-        {/* Frames */}
-        <Frames image={F1}/>
-        <Frames image={F2}/>
-        <Frames image={F3}/>
-        <Frames image={F4}/>
+          </div>
+        </div>
       </div>
     </div>
   );
