@@ -27,6 +27,7 @@ const Navbar = () => {
     dispatch({ type: actionType.SET_USER, user: providerData[0] });
 
     localStorage.setItem("user", JSON.stringify(providerData[0]));
+    setIsMenu(false)
   };
 
   const logout = () => {
@@ -90,7 +91,7 @@ const Navbar = () => {
               className=" absolute right-8 top-20 bg-white border rounded-lg"
               onClick={logout}
             >
-              {user.email === "viveksahu1762@gmail.com" && (
+              {user && user.email === "viveksahu1762@gmail.com" && (
                 <div className="p-4 rounded-t-lg flex justify-start items-center gap-3 hover:bg-gray-100 font-bold cursor-pointer">
                   <IoIosAdd /> <p>Add Item</p>
                 </div>
@@ -142,12 +143,19 @@ const Navbar = () => {
               <li onClick={handleMenu}>
                 <Link to="/about-us">About Us</Link>
               </li>
-              {!user && (
+              {user ? (
                 <li
-                  className=" text-sm bg-black text-white p-3 rounded-lg"
+                  className=" text-sm bg-black w-28 text-white p-3 rounded-lg  flex items-center justify-center"
+                  onClick={logout}
+                >
+                  <p>Logout</p>
+                </li>
+              ) : (
+                <li
+                  className=" text-sm bg-black w-28 text-white p-3 rounded-lg  flex items-center justify-center"
                   onClick={handleLogin}
                 >
-                  <p>Register Now / Login</p>
+                  <p>Login</p>
                 </li>
               )}
             </ul>

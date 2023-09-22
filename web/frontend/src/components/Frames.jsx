@@ -18,9 +18,12 @@ const Frames = ({
     //     </div>
     // </div>
 
-    <div className="md:w-[20%] border-[15px] border-black p-2 shadow-xl">
-      <img src={image} alt="frame1" />
-    </div>
+   <div className=" flex">
+     <div className="border-[15px] border-black p-2 shadow-xl ">
+    <img src={image} alt="frame1" className=" max-h-450 object-cover" />
+  </div>
+   </div>
+  
   );
 };
 

@@ -15,7 +15,7 @@ const HeroSection = () => {
           Transform moments into memories with our meticulously crafted frames,
           where each click finds its perfect place.
         </p>
-        <button className="mr-auto mt-8 text-2xl border-black rounded-lg p-4 px-6 hover:bg-black hover:text-white font-medium border-2 w-1/2 md:flex md:justify-center md:items-center hidden">
+        <button className="mr-auto mt-8 text-2xl  rounded-lg p-4 px-6 hover:bg-black hover:text-white font-light border w-1/2 md:flex md:justify-center md:items-center hidden">
           Buy Now
         </button>
       </div>

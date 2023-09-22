@@ -38,6 +38,14 @@ module.exports = {
         350: "350px",
         620: "620px",
       },
+      maxHeight: {
+        210: "210px",
+        260: "260px",
+        350: "350px",
+        450: "450px",
+        620: "620px",
+      },
+
       screens: {
         xsm: "365px",
         sm: "640px",
