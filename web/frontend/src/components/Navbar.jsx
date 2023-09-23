@@ -27,7 +27,7 @@ const Navbar = () => {
     dispatch({ type: actionType.SET_USER, user: providerData[0] });
 
     localStorage.setItem("user", JSON.stringify(providerData[0]));
-    setIsMenu(false)
+    setIsMenu(false);
   };
 
   const logout = () => {
@@ -49,12 +49,15 @@ const Navbar = () => {
       {/* For Desktops */}
       <div className="hidden md:flex md:flex-col bg-white z-50 border border-b-lightGrey border-b-1 border-t-0 border-x-0 px-8 pb-6">
         <div className="flex justify-between items-center">
-          <div className="flex items-end">
-            <img src={Logo} className="w-5 mb-3 " alt="logo" />
-            <p className="text-[2rem] font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-lightPink to-lightViolet">
-              ames
-            </p>
-          </div>
+          <Link to="/">
+            {" "}
+            <div className="flex items-end">
+              <img src={Logo} className="w-5 mb-3 " alt="logo" />
+              <p className="text-[2rem] font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-lightPink to-lightViolet">
+                ames
+              </p>
+            </div>
+          </Link>
 
           <ul className="flex gap-10 text-sm">
             <li>
@@ -87,17 +90,19 @@ const Navbar = () => {
           )}
 
           {isMenu && (
-            <div
-              className=" absolute right-8 top-20 bg-white border rounded-lg"
-              onClick={logout}
-            >
+            <div className=" absolute right-8 top-20 bg-white border rounded-lg">
               {user && user.email === "viveksahu1762@gmail.com" && (
-                <div className="p-4 rounded-t-lg flex justify-start items-center gap-3 hover:bg-gray-100 font-bold cursor-pointer">
-                  <IoIosAdd /> <p>Add Item</p>
-                </div>
+                <Link to="/create-item">
+                  <div className="p-4 rounded-t-lg flex justify-start items-center gap-3 hover:bg-gray-100 font-bold cursor-pointer" onClick={handleMenu}>
+                    <IoIosAdd /> <p>Add Item</p>
+                  </div>
+                </Link>
               )}
 
-              <div className="p-4 rounded-b-lg flex justify-start items-center gap-3 hover:bg-red-500 font-bold hover:text-white cursor-pointer">
+              <div
+                className="p-4 rounded-b-lg flex justify-start items-center gap-3 hover:bg-red-500 font-bold hover:text-white cursor-pointer"
+                onClick={logout}
+              >
                 <CiLogout /> <p>Logout</p>
               </div>
             </div>
@@ -107,12 +112,14 @@ const Navbar = () => {
 
       {/* For Phones */}
       <div className="md:hidden flex justify-between px-8">
-        <div className="flex items-end">
-          <img src={Logo} className="w-5 mb-3 " alt="logo" />
-          <p className="text-[2rem] font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-lightPink to-lightViolet">
-            ames
-          </p>
-        </div>
+        <Link to="/">
+          <div className="flex items-end">
+            <img src={Logo} className="w-5 mb-3 " alt="logo" />
+            <p className="text-[2rem] font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-lightPink to-lightViolet">
+              ames
+            </p>
+          </div>
+        </Link>
         {user ? (
           <img
             src={user.photoURL}
@@ -131,6 +138,13 @@ const Navbar = () => {
         {isMenu && (
           <div className="w-50 bg-gray-50 shadow-xl rounded-lg flex flex-col absolute top-16 right-8 px-4 py-3">
             <ul className="flex flex-col gap-2  ">
+              {user && user.email === "viveksahu1762@gmail.com" && (
+                <li>
+                  <Link to="/create-item" onClick={handleMenu}>
+                    Create Item
+                  </Link>
+                </li>
+              )}
               <li onClick={handleMenu}>
                 <Link to="/">Home</Link>
               </li>
