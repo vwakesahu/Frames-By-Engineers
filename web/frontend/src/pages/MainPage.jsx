@@ -1,12 +1,11 @@
 import React from "react";
 import Navbar from "../components/Navbar";
-import { Routes, Route, Navigate, Router } from "react-router-dom";
+import { Routes, Route, Navigate } from "react-router-dom";
 import HomePage from "./HomePage";
 import CategoryPage from "./CategoryPage";
-import Trendy from './Trendy'
-import AboutsUs from './AboutUs'
-
-
+import Trendy from "./Trendy";
+import AboutsUs from "./AboutUs";
+import CreateItem from "./CreateItem";
 
 const MainPage = () => {
   return (
@@ -19,6 +18,7 @@ const MainPage = () => {
           <Route path="/category" element={<CategoryPage />} />
           <Route path="/trendy" element={<Trendy />} />
           <Route path="/about-us" element={<AboutsUs />} />
+          <Route path="/create-item" element={<CreateItem />} />
         </Routes>
       </div>
     </div>
