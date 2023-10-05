@@ -16,7 +16,9 @@ const HomePage = () => {
       <HeroSection />
       <div className="">
         <div className="flex items-center justify-center flex-col gap-10">
-          <p className=" text-2xl font-semibold hover:underline cursor-pointer">Vertical Frames</p>
+          <p className=" text-2xl font-semibold hover:underline cursor-pointer">
+            Vertical Frames
+          </p>
           <div className="grid md:grid-cols-4 grid-cols-1 md:grid-rows-2 gap-6  ">
             {/* Frames */}
             <Frames image={F1} />
@@ -27,7 +29,6 @@ const HomePage = () => {
             <Frames image={F3} />
             <Frames image={F2} />
             <Frames image={F1} />
-
           </div>
         </div>
       </div>
