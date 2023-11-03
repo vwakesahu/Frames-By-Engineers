@@ -4,5 +4,5 @@ const userInfo = fetchUser();
 
 export const initialState = {
   user: userInfo,
-  frameData: null,
+  setFrame: null,
 };

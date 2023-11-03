@@ -131,7 +131,7 @@ const CreateItem = () => {
     await getAllFrames().then((data) => {
       dispatch({
         type: actionType.SET_FRAME,
-        frameData: data,
+        setFrame: data,
       });
     });
   };

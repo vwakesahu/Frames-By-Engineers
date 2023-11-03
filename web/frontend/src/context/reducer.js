@@ -16,7 +16,7 @@ const reducer = (state, action) => {
       case actionType.SET_FRAME:
       return {
         ...state,
-        frameData: action.frameData,
+        setFrame: action.setFrame,
       };
     default:
       return state;

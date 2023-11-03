@@ -13,7 +13,7 @@ import { useStateValue } from "../context/StateProvider";
 import FetchFrames from "../components/FetchFrames";
 
 const HomePage = () => {
-  const [{ frameData }, dispatch] = useStateValue();
+  const [{ setFrame }, dispatch] = useStateValue();
 
   return (
     <div>
@@ -36,19 +36,18 @@ const HomePage = () => {
           </div>
         </div>
 
-        <div className=" flex flex-col items-center justify-center mt-12">
-          <p className=" text-2xl font-semibold hover:underline cursor-pointer">
+        <div className=" flex flex-col items-center justify-center mt-12 h-auto">
+          <p className=" text-2xl font-semibold hover:underline cursor-pointer mb-12 ">
             Recent Frames
           </p>
-          <div className="grid md:grid-cols-4 grid-cols-1 gap-6  ">
-            {/* Frames */}
-            <FetchFrames data={frameData?.filter((n) => n.category === "Anime")} />
-          
-            {/* <Frames image={F4} />
+
+          {/* Frames */}
+          <FetchFrames data={setFrame} />
+
+          {/* <Frames image={F4} />
             <Frames image={F3} />
             <Frames image={F2} />
             <Frames image={F1} /> */}
-          </div>
         </div>
       </div>
     </div>
