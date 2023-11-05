@@ -3,6 +3,7 @@ import emailjs from "@emailjs/browser";
 
 const ContactUs = () => {
   const form = useRef();
+  
 
   const sendEmail = (e) => {
     e.preventDefault();
@@ -17,6 +18,7 @@ const ContactUs = () => {
       .then(
         (result) => {
           console.log(result.text);
+          form.current.reset();
         },
         (error) => {
           console.log(error.text);
