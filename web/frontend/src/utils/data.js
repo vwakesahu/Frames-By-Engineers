@@ -64,11 +64,26 @@ export const frameDimension = [
   {
     id: 1,
     dimension: "Vertical",
-    urlParamName: "vertical"
+    urlParamName: "Vertical",
   },
   {
     id: 2,
     dimension: "Horizontal",
-    urlParamName: "horizontal"
+    urlParamName: "Vertical",
   },
-]
+];
+
+export const frameMaterials = [
+  {
+    id: 1,
+    name: "Wood",
+  },
+  {
+    id: 2,
+    name: "Metal",
+  },
+  {
+    id: 3,
+    name: "Plastic",
+  },
+];

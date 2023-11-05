@@ -2,7 +2,12 @@ import React, { useState } from "react";
 import Loader from "../components/Loader";
 import { AiFillDelete } from "react-icons/ai";
 
-import { categories, frameColors, frameDimension } from "../utils/data";
+import {
+  categories,
+  frameColors,
+  frameDimension,
+  frameMaterials,
+} from "../utils/data";
 import Lottie from "lottie-react";
 import animationData from "../img/imageUpload.json";
 import {
@@ -26,6 +31,11 @@ const CreateItem = () => {
   const [isLoading, setIsLoading] = useState(false);
   const [imageAsset, setImageAsset] = useState(null);
   const [{ user }, dispatch] = useStateValue();
+  const [width, setWidth] = useState();
+  const [height, setHeight] = useState();
+  const [glass, setGlass] = useState("No");
+  const [material, setMaterial] = useState("");
+  const [dimensions, setDimensions] = useState("");
 
   const uploadImage = (e) => {
     setIsLoading(true);
@@ -97,6 +107,11 @@ const CreateItem = () => {
           imageURL: imageAsset,
           category: category,
           color: frameColor,
+          width: width,
+          height: height,
+          material: material,
+          glass: glass,
+          dimensions: dimensions
         };
         saveItem(data);
         setIsLoading(false);
@@ -244,11 +259,71 @@ const CreateItem = () => {
                     value={item.urlParamName}
                   >
                     {item.color}
-                    {console.log(item.color)}
+                  </option>
+                ))}
+            </select>
+
+            <select
+              onChange={(e) => setDimensions(e.target.value)}
+              className="outline-none w-full text-base border-b border-gray-200 p-2 rounded-md cursor-pointer mt-2"
+            >
+              <option value="other" className="bg-white">
+                Select Dimension
+              </option>
+              {frameDimension &&
+                frameDimension.map((item) => (
+                  <option
+                    key={item.id}
+                    className="text-base border-0 outline-none capitalize bg-white text-black"
+                    value={item.urlParamName}
+                  >
+                    {item.dimension}
                   </option>
                 ))}
             </select>
           </div>
+
+          <div className="w-full py-2 md:flex flex-col md:flex-row items-center gap-2">
+            <div className=" w-full border border-grey-300 p-4 rounded-lg">
+              <input
+                type="text"
+                required
+                value={width}
+                onChange={(e) => setWidth(e.target.value)}
+                placeholder="Width in inches"
+                className=" border border-gray-300 w-full h-full text-lg bg-transparent outline-none border-none placeholder:text-gray-400 text-textColor"
+              />
+            </div>
+            <div className=" w-full border border-grey-300 p-4 rounded-lg mt-2 md:mt-0">
+              <input
+                type="text"
+                required
+                value={height}
+                onChange={(e) => setHeight(e.target.value)}
+                placeholder="Height in inches"
+                className="w-full h-full text-lg bg-transparent outline-none border-none placeholder:text-gray-400 text-textColor"
+              />
+            </div>
+          </div>
+
+          <select
+            onChange={(e) => setMaterial(e.target.value)}
+            className="outline-none w-full text-base border-b border-gray-200 p-2 rounded-md cursor-pointer"
+          >
+            <option value="other" className="bg-white">
+              Select Material
+            </option>
+            {frameMaterials &&
+              frameMaterials.map((item) => (
+                <option
+                  key={item.id}
+                  className="text-base border-0 outline-none capitalize bg-white text-headingColor"
+                  value={item.name}
+                >
+                  {item.name}
+                </option>
+              ))}
+          </select>
           {/* 
           <div className="w-full py-2 border-b border-gray-300 flex items-center gap-2">
             <input
