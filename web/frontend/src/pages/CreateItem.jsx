@@ -1,10 +1,10 @@
 import React, { useState } from "react";
 import Loader from "../components/Loader";
-import { LuSubtitles } from "react-icons/lu";
-import { MdDelete, MdAttachMoney, MdCloudUpload } from "react-icons/md";
+import { AiFillDelete } from "react-icons/ai";
 
 import { categories, frameColors, frameDimension } from "../utils/data";
 import Lottie from "lottie-react";
+import animationData from "../img/imageUpload.json";
 import {
   deleteObject,
   getDownloadURL,
@@ -154,16 +154,18 @@ const CreateItem = () => {
 
           <div className="group flex justify-center items-center flex-col border-2 border-dotted border-gray-300 w-full h-225 md:h-340 cursor-pointer rounded-lg">
             {isLoading ? (
-              <p>Loading...</p>
+              <Loader />
             ) : (
               <>
                 {!imageAsset ? (
                   <>
                     <label className="w-full h-full flex flex-col items-center justify-center cursor-pointer">
                       <div className="w-full h-full flex flex-col items-center justify-center gap-2">
-                        <p className="text-gray-500 hover:text-gray-700">
+                        {/* <p className="text-gray-500 hover:text-gray-700">
                           Click here to upload
-                        </p>
+                        </p> */}
+
+                        <Lottie animationData={animationData} />
                       </div>
                       <input
                         type="file"
@@ -187,7 +189,7 @@ const CreateItem = () => {
                         className="absolute bottom-3 right-3 p-3 rounded-full bg-red-500 text-xl cursor-pointer outline-none hover:shadow-md  duration-500 transition-all ease-in-out"
                         onClick={deleteImage}
                       >
-                        DELETE
+                        <AiFillDelete className=" text-white" />
                       </button>
                     </div>
                   </>
