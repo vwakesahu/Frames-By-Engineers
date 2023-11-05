@@ -36,6 +36,7 @@ const CreateItem = () => {
   const [glass, setGlass] = useState("No");
   const [material, setMaterial] = useState("");
   const [dimensions, setDimensions] = useState("");
+  const [price, setPrice] = useState();
 
   const uploadImage = (e) => {
     setIsLoading(true);
@@ -111,7 +112,8 @@ const CreateItem = () => {
           height: height,
           material: material,
           glass: glass,
-          dimensions: dimensions
+          dimensions: dimensions,
+          price: price,
         };
         saveItem(data);
         setIsLoading(false);
@@ -324,6 +326,16 @@ const CreateItem = () => {
                 </option>
               ))}
           </select>
+          <div className=" w-full border border-grey-300 p-4 rounded-lg">
+            <input
+              type="text"
+              required
+              value={price}
+              onChange={(e) => setPrice(e.target.value)}
+              placeholder="Price in Rupees"
+              className=" border border-gray-300 w-full h-full text-lg bg-transparent outline-none border-none placeholder:text-gray-400 text-textColor"
+            />
+          </div>
           {/* 
           <div className="w-full py-2 border-b border-gray-300 flex items-center gap-2">
             <input

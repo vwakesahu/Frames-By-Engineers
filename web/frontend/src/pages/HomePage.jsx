@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import HeroSection from "../components/HeroSection";
 
 import F1 from "../img/pictures/Frame 6.png";
@@ -11,13 +11,17 @@ import F4 from "../img/pictures/Frame 8.png";
 import Frames from "../components/Frames";
 import { useStateValue } from "../context/StateProvider";
 import FetchFrames from "../components/FetchFrames";
+import CartContainer from "../components/CartContainer";
 
 const HomePage = () => {
-  const [{ setFrame }, dispatch] = useStateValue();
+  const [{ setFrame, cartShow  }, dispatch] = useStateValue();
+
+  useEffect(() => {}, [cartShow]);
 
   return (
     <div>
       <HeroSection />
+
       <div className="">
         <div className="flex items-center justify-center flex-col gap-10">
           <p className=" text-2xl font-semibold hover:underline cursor-pointer">
@@ -50,6 +54,8 @@ const HomePage = () => {
             <Frames image={F1} /> */}
         </div>
       </div>
+
+      {cartShow && <CartContainer />}
     </div>
   );
 };

@@ -14,7 +14,7 @@ import { CiShoppingCart } from "react-icons/ci";
 
 const Navbar = () => {
   const [isMenu, setIsMenu] = useState(false);
-  const [{ user }, dispatch] = useStateValue();
+  const [{ user, cartShow, cartItems }, dispatch] = useStateValue();
 
   const firebaseAuth = getAuth(app);
   const provider = new GoogleAuthProvider();
@@ -29,6 +29,13 @@ const Navbar = () => {
 
     localStorage.setItem("user", JSON.stringify(providerData[0]));
     setIsMenu(false);
+  };
+
+  const showCart = () => {
+    dispatch({
+      type: actionType.SET_CART_SHOW,
+      cartShow: !cartShow,
+    });
   };
 
   const logout = () => {
@@ -77,10 +84,15 @@ const Navbar = () => {
           <div>
             <div className=" flex items-center gap-7">
               <div className="flex flex-col items-center justify-center">
-                <div className=" bg-red-500 rounded-full relative left-4 px-2 text-sm text-white">
-                  5
-                </div>
-                <CiShoppingCart className=" text-3xl cursor-pointer" />
+                {cartItems && cartItems.length > 0 && (
+                  <div className=" bg-red-500 rounded-full relative left-4 px-2 text-sm text-white">
+                    {cartItems.length}
+                  </div>
+                )}
+                <CiShoppingCart
+                  className=" text-3xl cursor-pointer"
+                  onClick={showCart}
+                />
               </div>
               {user ? (
                 <img
@@ -134,12 +146,14 @@ const Navbar = () => {
           </div>
         </Link>
         <div className=" flex gap-7">
-          <div className="flex flex-col items-center justify-center">
-            <div className=" bg-red-500 rounded-full relative left-4 px-1 text-[0.7rem] text-white">
-              5
+          <CiShoppingCart className=" text-3xl" onClick={showCart} />
+          {cartItems && cartItems.length > 0 && (
+            <div className="flex flex-col items-center justify-center">
+              <div className=" bg-red-500 rounded-full relative left-4 px-1 text-[0.7rem] text-white">
+                {cartItems.length}
+              </div>
             </div>
-            <CiShoppingCart className=" text-3xl" />
-          </div>
+          )}
           {user ? (
             <img
               src={user.photoURL}

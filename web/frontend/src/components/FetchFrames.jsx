@@ -1,8 +1,26 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import NotFound from "../img/nonfound.svg";
+import { useStateValue } from "../context/StateProvider";
+import { actionType } from "../context/reducer";
 
 const FetchFrames = ({ data }) => {
   const [hoveredItem, setHoveredItem] = useState(null);
+
+  const [items, setItems] = useState([]);
+
+  const [{ cartItems }, dispatch] = useStateValue();
+
+  const addtocart = () => {
+    dispatch({
+      type: actionType.SET_CARTITEMS,
+      cartItems: items,
+    });
+    localStorage.setItem("cartItems", JSON.stringify(items));
+  };
+
+  useEffect(() => {
+    addtocart();
+  }, [items]);
 
   return (
     <div className="flex flex-wrap gap-10 items-center justify-center relative">
@@ -29,7 +47,7 @@ const FetchFrames = ({ data }) => {
                     {item.title}
                   </p>
                   <p className="text-white hover:bg-opacity-100 text-opacity-100 p-2">
-                    {(item.dimensions)} Frame
+                    {item.dimensions} Frame
                   </p>
                   <p className="text-white hover:bg-opacity-100 text-opacity-100 p-2">
                     Width: {item.width}
@@ -40,7 +58,13 @@ const FetchFrames = ({ data }) => {
                   <p className="text-white hover:bg-opacity-100 text-opacity-100 p-2">
                     Material: {item.material}
                   </p>
-                  <button className=" text-white p-2 px-6 rounded-md mt-2 bg-black">
+                  <p className=" text-red-700 rounded-lg bg-white hover:bg-opacity-100 font-semibold text-opacity-100 p-2">
+                    Price: {item.price} RS
+                  </p>
+                  <button
+                    className=" hover:shadow-lg text-white p-2 px-6 rounded-md mt-2 bg-black"
+                    onClick={() => setItems([...cartItems, item])}
+                  >
                     Checkout
                   </button>
                 </div>
