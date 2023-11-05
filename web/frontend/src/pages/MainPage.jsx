@@ -6,6 +6,11 @@ import CategoryPage from "./CategoryPage";
 import Trendy from "./Trendy";
 import ContactUs from "./ContactUs";
 import CreateItem from "./CreateItem";
+import Bollywood from "../components/Bollywood";
+import Marvel from "../components/Marvel";
+import Anime from "../components/Anime";
+import Model from "../components/Model";
+import Footer from "../components/Footer";
 
 const MainPage = () => {
   return (
@@ -19,7 +24,13 @@ const MainPage = () => {
           <Route path="/trendy" element={<Trendy />} />
           <Route path="/ContactUs" element={<ContactUs />} />
           <Route path="/create-item" element={<CreateItem />} />
+          <Route exact path="/category/bollywood" element={<Bollywood />} />
+          <Route exact path="/category/marvel" element={<Marvel />} />
+          <Route exact path="/category/anime" element={<Anime />} />
+          <Route exact path="/category/model" element={<Model />} />
+
         </Routes>
+        <Footer />
       </div>
     </div>
   );

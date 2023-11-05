@@ -14,7 +14,7 @@ import FetchFrames from "../components/FetchFrames";
 import CartContainer from "../components/CartContainer";
 
 const HomePage = () => {
-  const [{ setFrame, cartShow  }, dispatch] = useStateValue();
+  const [{ setFrame, cartShow }, dispatch] = useStateValue();
 
   useEffect(() => {}, [cartShow]);
 
@@ -46,7 +46,9 @@ const HomePage = () => {
           </p>
 
           {/* Frames */}
-          <FetchFrames data={setFrame} />
+          <FetchFrames
+            data={setFrame?.slice(0, 3)}
+          />
 
           {/* <Frames image={F4} />
             <Frames image={F3} />

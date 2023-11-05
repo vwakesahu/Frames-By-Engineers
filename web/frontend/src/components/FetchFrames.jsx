@@ -50,10 +50,10 @@ const FetchFrames = ({ data }) => {
                     {item.dimensions} Frame
                   </p>
                   <p className="text-white hover:bg-opacity-100 text-opacity-100 p-2">
-                    Width: {item.width}
+                    Width: {item.width} Inches
                   </p>
                   <p className="text-white hover:bg-opacity-100 text-opacity-100 p-2">
-                    Height: {item.height}
+                    Height: {item.height} Inches
                   </p>
                   <p className="text-white hover:bg-opacity-100 text-opacity-100 p-2">
                     Material: {item.material}

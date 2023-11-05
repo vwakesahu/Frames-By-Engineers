@@ -85,8 +85,8 @@ const CartContainer = () => {
             <div className="w-full border-b border-gray-600 my-2"></div>
 
             <div className="w-full flex items-center justify-between">
-              <p className="text-gray-200 text-xl font-semibold">Total</p>
-              <p className="text-gray-200 text-xl font-semibold">
+              <p className="text-red-500 text-xl font-semibold">Total</p>
+              <p className="text-red-500 text-xl font-semibold">
                 RS.{tot + 50}
               </p>
             </div>
@@ -95,7 +95,7 @@ const CartContainer = () => {
               <button
                 whileTap={{ scale: 0.8 }}
                 type="button"
-                className="w-full p-2 rounded-full bg-gradient-to-tr from-orange-400 to-orange-600 text-gray-50 text-lg my-2 hover:shadow-lg"
+                className="w-full p-2 rounded-full bg-gradient-to-r from-lightPink to-lightViolet text-white text-lg my-2 hover:shadow-lg"
               >
                 Check Out
               </button>
@@ -103,7 +103,7 @@ const CartContainer = () => {
               <button
                 whileTap={{ scale: 0.8 }}
                 type="button"
-                className="w-full p-2 rounded-full bg-gradient-to-tr from-orange-400 to-orange-600 text-gray-50 text-lg my-2 hover:shadow-lg"
+                className="w-full p-2 rounded-full bg-gradient-to-r from-lightPink to-lightViolet text-white text-lg my-2 hover:shadow-lg"
               >
                 Login to check out
               </button>

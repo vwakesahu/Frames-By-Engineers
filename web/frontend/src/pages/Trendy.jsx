@@ -1,7 +1,7 @@
 import React from "react";
 
 const Trendy = () => {
-  return <div>Trendy</div>;
+  return <div className=" h-screen">Trendy</div>;
 };
 
 export default Trendy;
