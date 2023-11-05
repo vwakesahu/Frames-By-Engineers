@@ -4,7 +4,7 @@ import { Routes, Route, Navigate } from "react-router-dom";
 import HomePage from "./HomePage";
 import CategoryPage from "./CategoryPage";
 import Trendy from "./Trendy";
-import AboutsUs from "./AboutUs";
+import ContactUs from "./ContactUs";
 import CreateItem from "./CreateItem";
 
 const MainPage = () => {
@@ -17,7 +17,7 @@ const MainPage = () => {
           <Route path="*" element={<Navigate to="/" />} />
           <Route path="/category" element={<CategoryPage />} />
           <Route path="/trendy" element={<Trendy />} />
-          <Route path="/about-us" element={<AboutsUs />} />
+          <Route path="/ContactUs" element={<ContactUs />} />
           <Route path="/create-item" element={<CreateItem />} />
         </Routes>
       </div>

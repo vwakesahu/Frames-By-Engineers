@@ -78,7 +78,7 @@ const Navbar = () => {
               <Link to="/trendy">Trendy</Link>
             </li>
             <li className="cursor-pointer">
-              <Link to="/about-us">About Us</Link>
+              <Link to="/ContactUs">Contact Us</Link>
             </li>
           </ul>
           <div>
@@ -189,7 +189,7 @@ const Navbar = () => {
                   <Link to="/trendy">Trendy</Link>
                 </li>
                 <li onClick={handleMenu}>
-                  <Link to="/about-us">About Us</Link>
+                  <Link to="/ContactUs">Contact Us</Link>
                 </li>
                 {user ? (
                   <li
